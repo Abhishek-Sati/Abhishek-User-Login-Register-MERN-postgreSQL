@@ -5,7 +5,6 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const User = require("../models/user");
 users.use(cors());
-process.env.SECRET_KEY = "abhishekuserloginregister";
 users.post("/register", (req, res) => {
   const userdata = {
     first_name: req.body.first_name,
