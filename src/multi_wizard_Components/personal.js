@@ -37,49 +37,56 @@ class Personal extends Component {
           <TextField
             hintText="Enter your first name"
             floatingLabelText="First Name"
-            onChange={this.props.handleChange("first_name")}
+            name="first_name"
+            onChange={e => this.props.handleChange(e)}
             defaultValue={this.props.values.first_name}
           />
           <br />
           <TextField
             hintText="Enter your last name"
             floatingLabelText="Last Name"
-            onChange={this.props.handleChange("last_name")}
+            name="last_name"
+            onChange={e => this.props.handleChange(e)}
             defaultValue={this.props.values.last_name}
           />
           <br />
           <TextField
             hintText="Enter your E-Mail"
             floatingLabelText="E-Mail"
-            onChange={this.props.handleChange("email")}
+            name="email"
+            onChange={e => this.props.handleChange(e)}
             defaultValue={this.props.values.email}
           />
           <br />
           <TextField
             hintText="1234567890"
             floatingLabelText="Enter your Phone Number"
-            onChange={this.props.handleChange("phoneNum")}
+            name="phoneNum"
+            onChange={e => this.props.handleChange(e)}
             defaultValue={this.props.values.phoneNum}
           />
           <br />
           <TextField
             hintText="Enter your father's name"
             floatingLabelText="Father's Name"
-            onChange={this.props.handleChange("father_name")}
+            name="father_name"
+            onChange={e => this.props.handleChange(e)}
             defaultValue={this.props.values.father_name}
           />
           <br />
           <TextField
             hintText="Male/Female"
             floatingLabelText="Enter Gender"
-            onChange={this.props.handleChange("gender")}
+            name="gender"
+            onChange={e => this.props.handleChange(e)}
             defaultValue={this.props.values.gender}
           />
           <br />
           <TextField
             hintText="01/01/2000"
             floatingLabelText="Enter your date of birth"
-            onChange={this.props.handleChange("dob")}
+            name="dob"
+            onChange={e => this.props.handleChange(e)}
             defaultValue={this.props.values.dob}
           />
           <br />

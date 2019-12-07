@@ -37,50 +37,57 @@ class Address extends Component {
           <TextField
             hintText="kamola,kaladhungi"
             floatingLabelText="Enter your current address"
-            onChange={this.props.handleChange("address")}
-            defaultValue={this.props.values.address}
+            name="address"
+            value={this.props.values.address}
+            onChange={e => this.props.handleChange(e)}
           />
           <br />
           <TextField
             hintText="kamola,kaladhungi"
             floatingLabelText="Enter your permanent address"
-            onChange={this.props.handleChange("P_address")}
-            defaultValue={this.props.values.P_address}
+            name="P_address"
+            value={this.props.values.P_address}
+            onChange={e => this.props.handleChange(e)}
           />
           <br />
           <TextField
             hintText="near millitary farm"
             floatingLabelText="Enter Landmark"
-            onChange={this.props.handleChange("landmark")}
-            defaultValue={this.props.values.landmark}
-          />
-          <br />
-          <TextField
-            hintText=""
-            floatingLabelText="Enter District Name"
-            onChange={this.props.handleChange("city")}
-            defaultValue={this.props.values.city}
-          />
-          <br />
-          <TextField
-            hintText="Uttarakhand"
-            floatingLabelText="Enter State Name"
-            onChange={this.props.handleChange("my_state")}
-            defaultValue={this.props.values.my_state}
+            name="landmark"
+            value={this.props.values.landmark}
+            onChange={e => this.props.handleChange(e)}
           />
           <br />
           <TextField
             hintText="263140"
             floatingLabelText="Enter pincode"
-            onChange={this.props.handleChange("pincode")}
-            defaultValue={this.props.values.pincode}
+            name="pincode"
+            value={this.props.values.pincode}
+            onChange={e => this.props.handleChange(e)}
+          />
+          <br />
+          <TextField
+            hintText=""
+            floatingLabelText="Enter District Name"
+            name="city"
+            value={this.props.values.city}
+            onChange={e => this.props.handleChange(e)}
+          />
+          <br />
+          <TextField
+            hintText="Uttarakhand"
+            floatingLabelText="Enter State Name"
+            name="my_state"
+            value={this.props.values.my_state}
+            onChange={e => this.props.handleChange(e)}
           />
           <br />
           <TextField
             hintText="India"
             floatingLabelText="Enter your Country name"
-            onChange={this.props.handleChange("country")}
-            defaultValue={this.props.values.country}
+            onChange={e => this.props.handleChange(e)}
+            name="country"
+            value={this.props.values.country}
           />
           <br />
           <RaisedButton

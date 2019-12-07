@@ -37,35 +37,40 @@ class Bussiness extends Component {
           <TextField
             hintText="XYZ.."
             floatingLabelText="Currently working with"
-            onChange={this.props.handleChange("current_work")}
+            name="current_work"
+            onChange={e => this.props.handleChange(e)}
             defaultValue={this.props.values.current_work}
           />
           <br />
           <TextField
             hintText="Manager/Senior Engineer"
             floatingLabelText="Enter your designation"
-            onChange={this.props.handleChange("designation")}
+            name="designation"
+            onChange={e => this.props.handleChange(e)}
             defaultValue={this.props.values.designation}
           />
           <br />
           <TextField
             hintText="0"
             floatingLabelText="Enter experience(in years)"
-            onChange={this.props.handleChange("experience")}
+            name="experience"
+            onChange={e => this.props.handleChange(e)}
             defaultValue={this.props.values.experience}
           />
           <br />
           <TextField
             hintText="XKSJF34S"
             floatingLabelText="Enter your PAN number"
-            onChange={this.props.handleChange("pan_number")}
+            name="pan_number"
+            onChange={e => this.props.handleChange(e)}
             defaultValue={this.props.values.pan_number}
           />
           <br />
           <TextField
             hintText="I am xyz......"
             floatingLabelText="Enter about your current job"
-            onChange={this.props.handleChange("about")}
+            name="about"
+            onChange={e => this.props.handleChange(e)}
             defaultValue={this.props.values.about}
           />
           <br />

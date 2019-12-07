@@ -46,15 +46,15 @@ class Main extends Component {
     const { step } = this.state;
     this.setState({ step: step - 1 });
   };
-  handleChange = input => e => {
-    this.setState({ [input]: e.target.value });
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
     if (
-      input === "pincode" &&
-      this.state.pincode !== null &&
-      this.state.pincode.length > 5
+      e.target.name === "pincode" &&
+      e.target.value !== null &&
+      e.target.value.length >= 5
     ) {
       axios
-        .get(`https://api.postalpincode.in/pincode/${this.state.pincode}`)
+        .get(`https://api.postalpincode.in/pincode/${e.target.value}`)
         .then(res => {
           this.setState({
             city: res.data[0].PostOffice[0].District,
@@ -130,12 +130,8 @@ class Main extends Component {
       })
       .then(res => {
         this.setState({ dataCompleted: true, step: 5 });
-        console.log("hey abhishek ! you are in then");
       })
-      .catch(e => {
-        console.log("error" + e);
-        console.log("hey abhishek ! you are in catch");
-      });
+      .catch(e => {});
   };
   firstStep = e => {
     e.preventDefault();

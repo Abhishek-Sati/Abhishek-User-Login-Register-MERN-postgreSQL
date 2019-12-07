@@ -37,56 +37,64 @@ class Professional extends Component {
           <TextField
             hintText="CBSE"
             floatingLabelText="Enter 10th board"
-            onChange={this.props.handleChange("highschool_board")}
+            name="highschool_board"
+            onChange={e => this.props.handleChange(e)}
             defaultValue={this.props.values.highschool_board}
           />
           <br />
           <TextField
             hintText="70.0"
             floatingLabelText="Enter 10th percentage"
-            onChange={this.props.handleChange("percentage10")}
+            name="percentage10"
+            onChange={e => this.props.handleChange(e)}
             defaultValue={this.props.values.percentage10}
           />
           <br />
           <TextField
             hintText="2013"
             floatingLabelText="Enter 10th passing year"
-            onChange={this.props.handleChange("year_passing10")}
+            name="year_passing10"
+            onChange={e => this.props.handleChange(e)}
             defaultValue={this.props.values.year_passing10}
           />
           <br />
           <TextField
             hintText="CBSE"
             floatingLabelText="Enter 12th board"
-            onChange={this.props.handleChange("intermediate_board")}
+            name="intermediate_board"
+            onChange={e => this.props.handleChange(e)}
             defaultValue={this.props.values.intermediate_board}
           />
           <br />
           <TextField
             hintText="70.0"
             floatingLabelText="Enter 12th percentage"
-            onChange={this.props.handleChange("percentage12")}
+            name="percentage12"
+            onChange={e => this.props.handleChange(e)}
             defaultValue={this.props.values.percentage12}
           />
           <br />
           <TextField
             hintText="2015"
             floatingLabelText="Enter 12th passing out year"
-            onChange={this.props.handleChange("year_passing12")}
+            name="year_passing12"
+            onChange={e => this.props.handleChange(e)}
             defaultValue={this.props.values.year_passing12}
           />
           <br />
           <TextField
             hintText="Graphic Era Hill University,Bhimtal"
             floatingLabelText="Enter college/university name"
-            onChange={this.props.handleChange("graduate_from")}
+            name="graduate_from"
+            onChange={e => this.props.handleChange(e)}
             defaultValue={this.props.values.graduate_from}
           />
           <br />
           <TextField
             hintText="2020"
             floatingLabelText="Enter Graduation Completion year"
-            onChange={this.props.handleChange("graduate_year")}
+            name="graduate_year"
+            onChange={e => this.props.handleChange(e)}
             defaultValue={this.props.values.graduate_year}
           />
           <br />

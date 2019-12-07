@@ -112,6 +112,10 @@ class Userhome extends Component {
               <td>{this.state.landmark}</td>
             </tr>
             <tr>
+              <td>Pincode</td>
+              <td>{this.state.pincode}</td>
+            </tr>
+            <tr>
               <td>District</td>
               <td>{this.state.city}</td>
             </tr>
@@ -122,10 +126,6 @@ class Userhome extends Component {
             <tr>
               <td>Country</td>
               <td>{this.state.country}</td>
-            </tr>
-            <tr>
-              <td>Pincode</td>
-              <td>{this.state.pincode}</td>
             </tr>
           </tbody>
         </table>
