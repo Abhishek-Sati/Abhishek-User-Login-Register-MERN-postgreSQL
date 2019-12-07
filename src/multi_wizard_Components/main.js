@@ -48,6 +48,22 @@ class Main extends Component {
   };
   handleChange = input => e => {
     this.setState({ [input]: e.target.value });
+    if (
+      input === "pincode" &&
+      this.state.pincode !== null &&
+      this.state.pincode.length > 5
+    ) {
+      axios
+        .get(`https://api.postalpincode.in/pincode/${this.state.pincode}`)
+        .then(res => {
+          this.setState({
+            city: res.data[0].PostOffice[0].District,
+            country: res.data[0].PostOffice[0].Country,
+            my_state: res.data[0].PostOffice[0].State
+          });
+        })
+        .catch(e => {});
+    }
   };
   handleSubmit = e => {
     e.preventDefault();

@@ -33,7 +33,7 @@ class Address extends Component {
           </i>
           <i className="material-icons icons__inactive">check</i>
           <br />
-          <AppBar title="Enter address details"></AppBar>
+          <AppBar title="Enter Address Details"></AppBar>
           <TextField
             hintText="kamola,kaladhungi"
             floatingLabelText="Enter your current address"
@@ -50,21 +50,21 @@ class Address extends Component {
           <br />
           <TextField
             hintText="near millitary farm"
-            floatingLabelText="Enter landmark"
+            floatingLabelText="Enter Landmark"
             onChange={this.props.handleChange("landmark")}
             defaultValue={this.props.values.landmark}
           />
           <br />
           <TextField
-            hintText="Haldwani"
-            floatingLabelText="Enter your city"
+            hintText=""
+            floatingLabelText="Enter District Name"
             onChange={this.props.handleChange("city")}
             defaultValue={this.props.values.city}
           />
           <br />
           <TextField
             hintText="Uttarakhand"
-            floatingLabelText="Enter state"
+            floatingLabelText="Enter State Name"
             onChange={this.props.handleChange("my_state")}
             defaultValue={this.props.values.my_state}
           />

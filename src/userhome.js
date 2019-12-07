@@ -112,7 +112,7 @@ class Userhome extends Component {
               <td>{this.state.landmark}</td>
             </tr>
             <tr>
-              <td>City</td>
+              <td>District</td>
               <td>{this.state.city}</td>
             </tr>
             <tr>
