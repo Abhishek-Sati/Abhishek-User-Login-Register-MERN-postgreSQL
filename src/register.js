@@ -37,6 +37,14 @@ class SignUpForm extends Component {
     });
   }
   Validate = () => {
+    if (this.state.first_name === "") {
+      this.setState({ error2: true });
+      return false;
+    }
+    if (this.state.last_name === "") {
+      this.setState({ error2: true });
+      return false;
+    }
     if (!this.state.email.includes("@")) {
       this.setState({ emailError: "invalid email" });
       return false;
@@ -153,7 +161,7 @@ class SignUpForm extends Component {
                 className="FormField__Input"
                 placeholder="Enter your email"
                 name="email"
-                autoComplete="off"
+                autoComplete="on"
                 value={this.state.email}
                 onChange={this.handleChange}
               />
@@ -214,7 +222,7 @@ class SignUpForm extends Component {
             ) : null}
             {this.state.error2 ? (
               <span className="span__styles">
-                Enter the complete details first{" "}
+                Enter the complete details first
               </span>
             ) : null}
             <div className="FormField">

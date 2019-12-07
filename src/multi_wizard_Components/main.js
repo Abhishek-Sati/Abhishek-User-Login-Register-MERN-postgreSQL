@@ -114,9 +114,11 @@ class Main extends Component {
       })
       .then(res => {
         this.setState({ dataCompleted: true, step: 5 });
+        console.log("hey abhishek ! you are in then");
       })
       .catch(e => {
         console.log("error" + e);
+        console.log("hey abhishek ! you are in catch");
       });
   };
   firstStep = e => {
@@ -248,7 +250,16 @@ class Main extends Component {
         );
       }
       case 5: {
-        return <Userhome history={this.props.history} values={values} />;
+        return (
+          <Userhome
+            history={this.props.history}
+            values={values}
+            submitCompleteDetails={this.props.submitCompleteDetails}
+          />
+        );
+      }
+      default: {
+        this.setState({ step: 1 });
       }
     }
   }

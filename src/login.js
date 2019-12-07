@@ -56,7 +56,6 @@ class SignInForm extends Component {
             localStorage.setItem("token", res.data);
             this.props.history.push("/profile");
           } else {
-            console.log(res.data.message);
             this.setState({ error: true });
           }
         })

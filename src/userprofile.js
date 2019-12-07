@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import jwt_decode from "jwt-decode";
 import Main from "./multi_wizard_Components/main";
+import axios from "axios";
 import "./App.css";
+import Userhome from "./userhome";
 class Profile extends Component {
   constructor(props) {
     super(props);
@@ -35,10 +37,11 @@ class Profile extends Component {
       my_state: "",
       country: "",
       pincode: "",
-      completeDetails: false,
-      hasAgreed: false
+      hasAgreed: false,
+      step: 1
     };
   }
+
   componentDidMount() {
     if (localStorage.token) {
       const token = localStorage.token;
@@ -75,9 +78,26 @@ class Profile extends Component {
       });
     }
   }
+  deleteAccount = e => {
+    const id = this.state._id;
+    axios
+      .post("users/delete", { _id: id })
+      .then(() => {
+        console.log("User deleted");
+        localStorage.removeItem("token");
+        this.props.history.push("/login");
+      })
+      .catch(e => {
+        console.log("Unable to delete the user");
+      });
+  };
+  showCompleteDetails = e => {
+    e.preventDefault();
+    this.setState({ step: 3 });
+  };
   submitCompleteDetails = e => {
     e.preventDefault();
-    this.setState({ completeDetails: true });
+    this.setState({ step: 2 });
   };
   logout(e) {
     e.preventDefault();
@@ -85,49 +105,122 @@ class Profile extends Component {
     this.props.history.push("/login");
   }
   render() {
-    return (
-      <div>
-        {!this.state.completeDetails ? (
+    const { step } = this.state;
+    const {
+      first_name,
+      last_name,
+      email,
+      phoneNum,
+      father_name,
+      dob,
+      gender,
+      highschool_board,
+      percentage10,
+      year_passing10,
+      intermediate_board,
+      percentage12,
+      year_passing12,
+      graduate_from,
+      graduate_year,
+      current_work,
+      designation,
+      experience,
+      pan_number,
+      about,
+      address,
+      P_address,
+      landmark,
+      city,
+      my_state,
+      country,
+      pincode
+    } = this.state;
+    const values = {
+      first_name,
+      last_name,
+      email,
+      phoneNum,
+      father_name,
+      dob,
+      gender,
+      highschool_board,
+      percentage10,
+      year_passing10,
+      intermediate_board,
+      percentage12,
+      year_passing12,
+      graduate_from,
+      graduate_year,
+      current_work,
+      designation,
+      experience,
+      pan_number,
+      about,
+      address,
+      P_address,
+      landmark,
+      city,
+      my_state,
+      country,
+      pincode
+    };
+    switch (step) {
+      case 1: {
+        return (
           <div>
-            <div className="my__div">
-              <h1>PROFILE</h1>
+            <div>
+              <div className="my__div">
+                <h1>PROFILE</h1>
+              </div>
+              <div className="userprofile">
+                <table className="table table-striped ">
+                  <tbody>
+                    <tr>
+                      <td>First Name</td>
+                      <td>{this.state.first_name}</td>
+                    </tr>
+                    <tr>
+                      <td>Last Name</td>
+                      <td>{this.state.last_name}</td>
+                    </tr>
+                    <tr>
+                      <td>E-Mail</td>
+                      <td>{this.state.email}</td>
+                    </tr>
+                    <tr>
+                      <td>Phone Number</td>
+                      <td>{this.state.phoneNum}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <button
+                className="profile__buttons"
+                onClick={this.showCompleteDetails}
+              >
+                HOME
+              </button>
+              <button
+                className="profile__buttons"
+                onClick={this.submitCompleteDetails}
+              >
+                EDIT PROFILE
+              </button>
+              <button
+                onClick={this.logout.bind(this)}
+                className="profile__buttons"
+              >
+                LOGOUT
+              </button>
+              <button onClick={this.deleteAccount} className="profile__buttons">
+                REMOVE ACCOUNT
+              </button>
             </div>
-            <div className="userprofile">
-              <table className="table table-striped ">
-                <tbody>
-                  <tr>
-                    <td>First Name</td>
-                    <td>{this.state.first_name}</td>
-                  </tr>
-                  <tr>
-                    <td>Last Name</td>
-                    <td>{this.state.last_name}</td>
-                  </tr>
-                  <tr>
-                    <td>E-Mail</td>
-                    <td>{this.state.email}</td>
-                  </tr>
-                  <tr>
-                    <td>Phone Number</td>
-                    <td>{this.state.phoneNum}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <button
-              className="profile__buttons"
-              onClick={this.submitCompleteDetails}
-            >
-              Add Details
-            </button>
-            <button
-              onClick={this.logout.bind(this)}
-              className="profile__buttons"
-            >
-              LOGOUT
-            </button>
           </div>
-        ) : (
+        );
+      }
+      case 2: {
+        return (
           <Main
             _id={this.state._id}
             first_name={this.state.first_name}
@@ -159,9 +252,21 @@ class Profile extends Component {
             pincode={this.state.pincode}
             history={this.props.history}
           />
-        )}
-      </div>
-    );
+        );
+      }
+      case 3: {
+        return (
+          <Userhome
+            values={values}
+            history={this.props.history}
+            submitCompleteDetails={this.submitCompleteDetails}
+          />
+        );
+      }
+      default: {
+        this.setState({ step: 1 });
+      }
+    }
   }
 }
 export default Profile;

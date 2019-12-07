@@ -1,7 +1,18 @@
 const Sequelize = require("sequelize");
-const db = require("./database.js");
-const User = db.sequelize.define(
-  "users",
+const sequelize = new Sequelize("userloginreg", "postgres", "abhi01sati", {
+  host: "localhost",
+  dialect: "postgres",
+  operatorsAliases: false,
+
+  pool: {
+    max: 5,
+    min: 0,
+    acquire: 30000,
+    idle: 10000
+  }
+});
+const User = sequelize.define(
+  "user",
   {
     _id: {
       type: Sequelize.UUID,
@@ -21,7 +32,7 @@ const User = db.sequelize.define(
       required: true
     },
     phoneNum: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.BIGINT,
       required: true
     },
     password: {
@@ -102,4 +113,25 @@ const User = db.sequelize.define(
     timestamps: false
   }
 );
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log("Connection to database is successfull");
+  })
+  .catch(e => {
+    console.log("Connection to database is failed");
+  });
+sequelize
+  .sync({
+    force: false,
+    alter: true,
+    logging: console.log
+  })
+  .then(() => {
+    console.log("Connected to postgreSQL database");
+  })
+  .catch(e => {
+    console.log("Cant connect to database");
+  });
+
 module.exports = User;
