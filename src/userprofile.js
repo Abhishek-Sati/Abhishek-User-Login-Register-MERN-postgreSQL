@@ -76,6 +76,10 @@ class Profile extends Component {
         country: decode.country,
         pincode: decode.pincode
       });
+
+      if (decode.father_name === "" || decode.father_name === null) {
+        this.setState({ step: 2 });
+      }
     }
   }
   deleteAccount = e => {

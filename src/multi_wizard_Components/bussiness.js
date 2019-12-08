@@ -32,6 +32,12 @@ class Bussiness extends Component {
           >
             check
           </i>
+          <i
+            className="material-icons  logout__icon"
+            onClick={this.props.logout}
+          >
+            exit_to_app
+          </i>
           <br />
           <AppBar title="Enter bussiness details"></AppBar>
           <TextField
@@ -74,15 +80,21 @@ class Bussiness extends Component {
             defaultValue={this.props.values.about}
           />
           <br />
+          {this.props.values.errorBussiness !== "" ? (
+            <span className="span__styles">
+              {this.props.values.errorBussiness}
+            </span>
+          ) : null}
+          <br />
           <RaisedButton
             label="Previous"
-            onClick={this.props.prevstep}
+            onClick={this.props.secondStep}
             primary={true}
             style={styles.button}
           />
           <RaisedButton
             label="Next"
-            onClick={this.props.nextstep}
+            onClick={this.props.fourthStep}
             primary={true}
             style={styles.button}
           />

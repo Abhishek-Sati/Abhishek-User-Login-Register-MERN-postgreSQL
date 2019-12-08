@@ -32,6 +32,12 @@ class Address extends Component {
             home
           </i>
           <i className="material-icons icons__inactive">check</i>
+          <i
+            className="material-icons  logout__icon"
+            onClick={this.props.logout}
+          >
+            exit_to_app
+          </i>
           <br />
           <AppBar title="Enter Address Details"></AppBar>
           <TextField
@@ -90,9 +96,15 @@ class Address extends Component {
             value={this.props.values.country}
           />
           <br />
+          {this.props.values.errorAddress !== "" ? (
+            <span className="span__styles">
+              {this.props.values.errorAddress}
+            </span>
+          ) : null}
+          <br />
           <RaisedButton
             label="Previous"
-            onClick={this.props.prevstep}
+            onClick={this.props.thirdStep}
             primary={true}
             style={styles.button}
           />

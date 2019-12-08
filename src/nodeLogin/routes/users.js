@@ -93,6 +93,7 @@ users.post("/completeDetails", (req, res) => {
       _id: req.body._id,
       first_name: req.body.first_name,
       last_name: req.body.last_name,
+      email: req.body.email,
       phoneNum: req.body.phoneNum,
       father_name: req.body.father_name,
       dob: req.body.dob,
@@ -139,5 +140,18 @@ users.post("/delete", (req, res) => {
     .catch(e => {
       res.json({ failed: "Unable to remove the user" });
     });
+});
+users.post("/checkemail", (req, res) => {
+  User.findOne({
+    where: {
+      email: req.body.email
+    }
+  }).then(user => {
+    if (user === null) {
+      res.json({ newEmail: "We can use this email" });
+    } else {
+      res.json({ error: "User already exists" });
+    }
+  });
 });
 module.exports = users;

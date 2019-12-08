@@ -32,6 +32,12 @@ class Professional extends Component {
           >
             check
           </i>
+          <i
+            className="material-icons  logout__icon"
+            onClick={this.props.logout}
+          >
+            exit_to_app
+          </i>
           <br />
           <AppBar title="Enter professional details"></AppBar>
           <TextField
@@ -98,15 +104,21 @@ class Professional extends Component {
             defaultValue={this.props.values.graduate_year}
           />
           <br />
+          {this.props.values.errorProfessional !== "" ? (
+            <span className="span__styles">
+              {this.props.values.errorProfessional}
+            </span>
+          ) : null}
+          <br />
           <RaisedButton
             label="Previous"
-            onClick={this.props.prevstep}
+            onClick={this.props.firstStep}
             primary={true}
             style={styles.button}
           />
           <RaisedButton
             label="Next"
-            onClick={this.props.nextstep}
+            onClick={this.props.thirdStep}
             primary={true}
             style={styles.button}
           />

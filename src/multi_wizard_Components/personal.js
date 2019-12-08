@@ -32,6 +32,12 @@ class Personal extends Component {
           >
             check
           </i>
+          <i
+            className="material-icons  logout__icon"
+            onClick={this.props.logout}
+          >
+            exit_to_app
+          </i>
           <br />
           <AppBar title="Enter personal details"></AppBar>
           <TextField
@@ -78,8 +84,8 @@ class Personal extends Component {
             hintText="Male/Female"
             floatingLabelText="Enter Gender"
             name="gender"
-            onChange={e => this.props.handleChange(e)}
             defaultValue={this.props.values.gender}
+            onChange={e => this.props.handleChange(e)}
           />
           <br />
           <TextField
@@ -90,11 +96,21 @@ class Personal extends Component {
             defaultValue={this.props.values.dob}
           />
           <br />
+          {this.props.values.errorPersonal !== "" ? (
+            <span className="span__styles">
+              {this.props.values.errorPersonal}
+            </span>
+          ) : null}
+          <br />
+          {this.props.values.emailError ? (
+            <span className="span__styles">Email is already taken</span>
+          ) : null}
+          <br />
           <RaisedButton
             label="Next"
-            onClick={this.props.nextstep}
+            onClick={this.props.secondStep}
             primary={true}
-            style={styles.button}
+            style={styles}
           />
         </Fragment>
       </MuiThemeProvider>
