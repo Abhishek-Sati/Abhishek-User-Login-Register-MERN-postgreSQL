@@ -52,29 +52,35 @@ class Profile extends Component {
         last_name: decode.last_name,
         email: decode.email,
         phoneNum: decode.phoneNum,
-        father_name: decode.father_name,
-        dob: decode.dob,
-        gender: decode.gender,
-        highschool_board: decode.highschool_board,
-        percentage10: decode.percentage10,
-        year_passing10: decode.year_passing10,
-        intermediate_board: decode.intermediate_board,
-        percentage12: decode.percentage12,
-        year_passing12: decode.year_passing12,
-        graduate_from: decode.graduate_from,
-        graduate_year: decode.graduate_year,
-        current_work: decode.current_work,
-        designation: decode.designation,
-        experience: decode.experience,
-        pan_number: decode.pan_number,
-        about: decode.about,
-        address: decode.address,
-        P_address: decode.P_address,
-        landmark: decode.landmark,
-        city: decode.city,
-        my_state: decode.my_state,
-        country: decode.country,
-        pincode: decode.pincode
+        father_name: decode.father_name !== null ? decode.father_name : "",
+        dob: decode.dob !== null ? decode.dob : "",
+        gender: decode.gender !== null ? decode.gender : "",
+        highschool_board:
+          decode.highschool_board !== null ? decode.highschool_board : "",
+        percentage10: decode.percentage10 !== null ? decode.percentage10 : "",
+        year_passing10:
+          decode.year_passing10 !== null ? decode.year_passing10 : "",
+        intermediate_board:
+          decode.intermediate_board !== null ? decode.intermediate_board : "",
+        percentage12: decode.percentage12 !== null ? decode.percentage12 : "",
+        year_passing12:
+          decode.year_passing12 !== null ? decode.year_passing12 : "",
+        graduate_from:
+          decode.graduate_from !== null ? decode.graduate_from : "",
+        graduate_year:
+          decode.graduate_year !== null ? decode.graduate_year : "",
+        current_work: decode.current_work !== null ? decode.current_work : "",
+        designation: decode.designation !== null ? decode.designation : "",
+        experience: decode.experience !== null ? decode.experience : "",
+        pan_number: decode.pan_number !== null ? decode.pan_number : "",
+        about: decode.about !== null ? decode.about : "",
+        address: decode.address !== null ? decode.address : "",
+        P_address: decode.P_address !== null ? decode.P_address : "",
+        landmark: decode.landmark !== null ? decode.landmark : "",
+        city: decode.city !== null ? decode.city : "",
+        my_state: decode.my_state !== null ? decode.my_state : "",
+        country: decode.country !== null ? decode.country : "",
+        pincode: decode.pincode !== null ? decode.pincode : ""
       });
 
       if (decode.father_name === "" || decode.father_name === null) {

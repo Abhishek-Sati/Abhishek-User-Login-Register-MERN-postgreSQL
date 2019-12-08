@@ -90,7 +90,6 @@ class Main extends Component {
           email: e.target.value
         })
         .then(res => {
-          console.log(res.data);
           if (res.data.error) {
             this.setState({ emailError: true });
           } else {
