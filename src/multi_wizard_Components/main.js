@@ -206,6 +206,10 @@ class Main extends Component {
     if (this.state.dob === null || this.state.dob === "") {
       return false;
     }
+    let date = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/;
+    if (!this.state.dob.match(date)) {
+      return false;
+    }
     if (
       this.state.gender === "" ||
       this.state.gender === null ||
@@ -494,7 +498,7 @@ class Main extends Component {
         );
       }
       case 5: {
-        return <Userhome values={values} logout={this.logout} />;
+        return <Userhome values={values} history={this.props.history} />;
       }
       default: {
         this.setState({ step: 1 });

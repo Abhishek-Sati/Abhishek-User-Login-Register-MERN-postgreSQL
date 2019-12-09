@@ -89,7 +89,7 @@ class Personal extends Component {
           />
           <br />
           <TextField
-            hintText="01/01/2000"
+            hintText="Day/Month/Year"
             floatingLabelText="Enter your date of birth"
             name="dob"
             onChange={e => this.props.handleChange(e)}

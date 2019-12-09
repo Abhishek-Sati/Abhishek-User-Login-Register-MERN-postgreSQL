@@ -265,13 +265,7 @@ class Profile extends Component {
         );
       }
       case 3: {
-        return (
-          <Userhome
-            values={values}
-            history={this.props.history}
-            submitCompleteDetails={this.submitCompleteDetails}
-          />
-        );
+        return <Userhome values={values} history={this.props.history} />;
       }
       default: {
         this.setState({ step: 1 });

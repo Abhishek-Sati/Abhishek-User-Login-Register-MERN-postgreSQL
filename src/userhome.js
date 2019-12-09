@@ -6,6 +6,11 @@ class Userhome extends Component {
 
     this.state = this.props.values;
   }
+  logout = e => {
+    e.preventDefault();
+    localStorage.removeItem("token");
+    this.props.history.push("/login");
+  };
   render() {
     return (
       <div>
@@ -124,7 +129,7 @@ class Userhome extends Component {
             </tr>
           </tbody>
         </table>
-        <button className="profile__buttons" onClick={this.props.logout}>
+        <button className="profile__buttons" onClick={this.logout}>
           LOGOUT
         </button>
       </div>
